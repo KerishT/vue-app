@@ -1,8 +1,12 @@
-<script setup></script>
+<script setup>
+const color = "red";
+</script>
 
 <template>
   <header>Шапка</header>
-  <main>Мейн</main>
+  <main :class="color">
+    Мейн
+  </main>
   <footer>Футер</footer>
 </template>
 
