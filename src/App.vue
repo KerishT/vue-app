@@ -1,11 +1,11 @@
 <script setup>
-const color = "red";
+import Button from './components/Button.vue';
 </script>
 
 <template>
   <header>Шапка</header>
-  <main :class="color">
-    Мейн
+  <main>
+    Мейн <Button />
   </main>
   <footer>Футер</footer>
 </template>
