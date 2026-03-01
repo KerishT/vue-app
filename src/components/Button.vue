@@ -3,7 +3,7 @@
 
 <template>
   <button class="button">
-    Кнопка
+    <slot />
   </button>
 </template>
 

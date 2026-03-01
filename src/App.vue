@@ -5,7 +5,7 @@ import Button from './components/Button.vue';
 <template>
   <header>Шапка</header>
   <main>
-    Мейн <Button />
+    Мейн <Button>Кнопка</Button>
   </main>
   <footer>Футер</footer>
 </template>
