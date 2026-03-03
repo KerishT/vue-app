@@ -3,11 +3,15 @@ import Button from './components/Button.vue';
 </script>
 
 <template>
-  <header>Шапка</header>
-  <main>
-    Мейн <Button>Кнопка</Button>
+  <main class="main">
+    <Button>Сохранить</Button>
   </main>
-  <footer>Футер</footer>
 </template>
 
-<style scoped></style>
+<style scoped>
+.main {
+  background: var(--color-bg-main);
+  padding: 60px 50px;
+  border-radius: 25px;
+}
+</style>
