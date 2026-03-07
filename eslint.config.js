@@ -33,5 +33,5 @@ export default [
       ],
     },
   },
-  prettierConfig, // Должен быть последним
+  prettierConfig,
 ]
