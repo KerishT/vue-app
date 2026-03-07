@@ -1,6 +1,8 @@
 import vuePlugin from "eslint-plugin-vue"
 import js from "@eslint/js"
 import vueParser from "vue-eslint-parser"
+import prettierConfig from "eslint-config-prettier"
+import prettierPlugin from "eslint-plugin-prettier"
 
 export default [
   {
@@ -10,6 +12,9 @@ export default [
   ...vuePlugin.configs["flat/recommended"],
   {
     files: ["**/*.vue", "**/*.js"],
+    plugins: {
+      prettier: prettierPlugin,
+    },
     languageOptions: {
       parser: vueParser,
       ecmaVersion: "latest",
@@ -18,7 +23,15 @@ export default [
     rules: {
       "vue/multi-word-component-names": "off",
       "vue/require-default-prop": "off",
-      indent: ["error", 2],
+      "prettier/prettier": [
+        "error",
+        {
+          tabWidth: 2,
+          vueIndentScriptAndStyle: true,
+          semi: false,
+        },
+      ],
     },
   },
+  prettierConfig, // Должен быть последним
 ]
