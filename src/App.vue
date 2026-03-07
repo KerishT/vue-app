@@ -6,7 +6,7 @@
 <template>
   <main class="main">
     <Button>Сохранить</Button>
-    <Stat />
+    <Stat stat="90 %" />
   </main>
 </template>
 

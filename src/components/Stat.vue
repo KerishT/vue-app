@@ -1,20 +1,21 @@
-<script setup></script>
+<script setup>
+  defineProps({
+    label: {
+      type: String,
+      default: "Не задан",
+    },
+    stat: String,
+  })
+</script>
 
 <template>
-  <ul class="stats">
-    <li class="stat">
-      <div class="stat-name">Влажность</div>
-      <div class="stat-value">90%</div>
-    </li>
-  </ul>
+  <div class="stat">
+    <div class="stat-name">{{ label }}</div>
+    <div class="stat-value">{{ stat }}</div>
+  </div>
 </template>
 
 <style scoped>
-  .stats {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
   .stat {
     font-size: 28px;
     display: flex;
