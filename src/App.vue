@@ -1,12 +1,17 @@
 <script setup>
   import Button from "./components/Button.vue"
   import Stat from "./components/Stat.vue"
+
+  const data = {
+    label: "Влажность",
+    stat: "90%",
+  }
 </script>
 
 <template>
   <main class="main">
     <Button>Сохранить</Button>
-    <Stat stat="90 %" />
+    <Stat v-bind="data" />
   </main>
 </template>
 
