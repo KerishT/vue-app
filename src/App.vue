@@ -6,12 +6,16 @@
     label: "Влажность",
     stat: "90%",
   }
+
+  const getCity = (city) => {
+    console.log('City:', city)
+  }
 </script>
 
 <template>
   <main class="main">
     <Stat v-bind="data" />
-    <CitySelect />
+    <CitySelect @select-city="getCity" />
   </main>
 </template>
 

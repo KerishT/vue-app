@@ -19,9 +19,9 @@ export default [
       parser: vueParser,
       ecmaVersion: "latest",
       sourceType: "module",
-      globals: {
-        console: "readonly",
-      },
+    },
+    env: {
+      browser: true,
     },
     rules: {
       "vue/multi-word-component-names": "off",
