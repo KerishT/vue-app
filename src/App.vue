@@ -1,6 +1,6 @@
 <script setup>
-  import Button from "./components/Button.vue"
   import Stat from "./components/Stat.vue"
+  import CitySelect from "./components/CitySelect.vue"
 
   const data = {
     label: "Влажность",
@@ -10,8 +10,8 @@
 
 <template>
   <main class="main">
-    <Button>Сохранить</Button>
     <Stat v-bind="data" />
+    <CitySelect />
   </main>
 </template>
 
