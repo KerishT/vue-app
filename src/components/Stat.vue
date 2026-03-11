@@ -1,5 +1,5 @@
 <script setup>
-  defineProps({
+  const {label, stat} = defineProps({
     label: {
       type: String,
       default: "Не задан",
