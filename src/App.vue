@@ -8,7 +8,7 @@
   }
 
   const getCity = (city) => {
-    console.log('City:', city)
+    console.log("City:", city)
   }
 </script>
 

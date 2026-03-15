@@ -5,11 +5,11 @@
   const emit = defineEmits({
     selectCity: (payload) => {
       return payload
-    }
+    },
   })
 
   const select = () => {
-    emit('selectCity', 'London')
+    emit("selectCity", "London")
   }
 </script>
 

@@ -1,5 +1,4 @@
 import vuePlugin from "eslint-plugin-vue"
-import js from "@eslint/js"
 import vueParser from "vue-eslint-parser"
 import prettierConfig from "eslint-config-prettier"
 import prettierPlugin from "eslint-plugin-prettier"
@@ -8,7 +7,6 @@ export default [
   {
     ignores: ["dist/**", "node_modules/**"],
   },
-  js.configs.recommended,
   ...vuePlugin.configs["flat/recommended"],
   {
     files: ["**/*.vue", "**/*.js"],
@@ -19,9 +17,6 @@ export default [
       parser: vueParser,
       ecmaVersion: "latest",
       sourceType: "module",
-    },
-    env: {
-      browser: true,
     },
     rules: {
       "vue/multi-word-component-names": "off",
