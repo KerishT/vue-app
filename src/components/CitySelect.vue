@@ -26,6 +26,9 @@
     <IconLocation />
     Изменить город
   </Button>
-  <input />
-  <Button @click="select">Сохранить</Button>
+
+  <div v-if="isEdited">
+    <input />
+    <Button @click="select">Сохранить</Button>
+  </div>
 </template>
