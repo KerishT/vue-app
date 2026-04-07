@@ -2,6 +2,7 @@
   import { ref } from "vue"
   import IconLocation from "../icons/IconLocation.vue"
   import Button from "./Button.vue"
+  import Input from "./Input.vue"
 
   const isEdited = ref(false)
 
@@ -22,12 +23,25 @@
 </script>
 
 <template>
-  <div v-if="isEdited">
-    <input />
-    <Button @click="select">Сохранить</Button>
+  <div class="city-select">
+    <div v-if="isEdited" class="city-input">
+      <Input placeholder="Введите город" />
+      <Button @click="select">Сохранить</Button>
+    </div>
+    <Button v-else @click="edit">
+      <IconLocation />
+      Изменить город
+    </Button>
   </div>
-  <Button v-else @click="edit">
-    <IconLocation />
-    Изменить город
-  </Button>
 </template>
+
+<style scoped>
+  .city-input {
+    display: flex;
+    gap: 12px;
+  }
+
+  .city-select {
+    width: 420px;
+  }
+</style>

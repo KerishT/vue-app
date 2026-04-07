@@ -19,7 +19,10 @@
     font-size: 20px;
     font-weight: 600;
     color: var(--primary);
+    height: 53px;
+    width: 100%;
     cursor: pointer;
+    justify-content: center;
   }
 
   .button:hover {
