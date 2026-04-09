@@ -1,7 +1,9 @@
-<script setup></script>
+<script setup>
+  const emit = defineEmits(["update:value"])
+</script>
 
 <template>
-  <input class="input" />
+  <input class="input" @input="emit('update:value', $event.target.value)" />
 </template>
 
 <style scoped>

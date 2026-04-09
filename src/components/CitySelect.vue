@@ -4,6 +4,7 @@
   import Button from "./Button.vue"
   import Input from "./Input.vue"
 
+  const city = ref("Moscow")
   const isEdited = ref(false)
 
   const emit = defineEmits({
@@ -20,12 +21,16 @@
     isEdited.value = false
     emit("selectCity", "London")
   }
+
+  function updateCity(newCity) {
+    city.value = newCity
+  }
 </script>
 
 <template>
   <div class="city-select">
     <div v-if="isEdited" class="city-input">
-      <Input placeholder="Введите город" />
+      <Input placeholder="Введите город" @update:value="updateCity" />
       <Button @click="select">Сохранить</Button>
     </div>
     <Button v-else @click="edit">
