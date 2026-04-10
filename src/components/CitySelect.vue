@@ -21,16 +21,12 @@
     isEdited.value = false
     emit("selectCity", "London")
   }
-
-  function updateCity(newCity) {
-    city.value = newCity
-  }
 </script>
 
 <template>
   <div class="city-select">
     <div v-if="isEdited" class="city-input">
-      <Input placeholder="Введите город" @update:value="updateCity" />
+      <Input v-model="city" placeholder="Введите город" />
       <Button @click="select">Сохранить</Button>
     </div>
     <Button v-else @click="edit">

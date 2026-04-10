@@ -1,9 +1,9 @@
 <script setup>
-  const emit = defineEmits(["update:value"])
+  const model = defineModel()
 </script>
 
 <template>
-  <input class="input" @input="emit('update:value', $event.target.value)" />
+  <input v-model="model" class="input" />
 </template>
 
 <style scoped>
