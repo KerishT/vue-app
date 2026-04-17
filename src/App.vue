@@ -3,7 +3,9 @@
   import CitySelect from "./components/CitySelect.vue"
   import { computed, ref } from "vue"
 
-  const savedCity = ref("Moscow")
+  const API_ENDPOINT = "https://api.weatherapi.com/v1"
+  const API_KEY = import.meta.env.VITE_WEATHER_API_KEY
+
   const data = ref({
     humidity: 90,
     rain: 0,
@@ -27,9 +29,18 @@
     ]
   })
 
-  const getCity = (city) => {
-    savedCity.value = city
-    data.value.humidity = 20
+  const getCity = async (city) => {
+    const params = new URLSearchParams({
+      q: city,
+      lang: "ru",
+      key: API_KEY,
+      days: 3,
+    })
+    const res = await fetch(
+      `${API_ENDPOINT}/forecast.json?${params.toString()}`,
+    )
+    const data = await res.json()
+    console.log(data)
   }
 </script>
 
