@@ -6,25 +6,23 @@
   const API_ENDPOINT = "https://api.weatherapi.com/v1"
   const API_KEY = import.meta.env.VITE_WEATHER_API_KEY
 
-  const data = ref({
-    humidity: 90,
-    rain: 0,
-    wind: 3,
-  })
+  const data = ref(null)
 
   const dataModified = computed(() => {
+    if (!data.value) return []
+
     return [
       {
         label: "Влажность",
-        stat: data.value.humidity + "%",
+        stat: data.value.current.humidity + "%",
       },
       {
-        label: "Осадки",
-        stat: data.value.rain + "%",
+        label: "Облачность",
+        stat: data.value.current.cloud + "%",
       },
       {
         label: "Ветер",
-        stat: data.value.wind + "м/ч",
+        stat: data.value.current.wind_kph + "км/ч",
       },
     ]
   })
@@ -39,8 +37,7 @@
     const res = await fetch(
       `${API_ENDPOINT}/forecast.json?${params.toString()}`,
     )
-    const data = await res.json()
-    console.log(data)
+    data.value = await res.json()
   }
 </script>
 
