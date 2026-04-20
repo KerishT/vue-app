@@ -4,7 +4,7 @@
   import Button from "./Button.vue"
   import Input from "./Input.vue"
 
-  const city = ref("Moscow")
+  const city = ref("Moscoww")
   const isEdited = ref(false)
 
   const emit = defineEmits({
