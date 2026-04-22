@@ -12,7 +12,7 @@
 <template>
   <button class="day-card">
     <IconSun v-if="weatherCode == 1000" />
-    <IconCloud v-if="weatherCode == 1003" />
+    <IconCloud v-if="weatherCode == 1198" />
     <IconRain v-if="weatherCode == 1009" />
 
     <div class="day-card__day">
@@ -25,6 +25,7 @@
 
 <style scoped>
   .day-card {
+    width: 100%;
     border-radius: 10px;
     box-shadow: 1px 2px 4px 0px #222831;
     color: var(--color-primary);

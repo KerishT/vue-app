@@ -3,6 +3,7 @@
   import CitySelect from "./components/CitySelect.vue"
   import { computed, ref } from "vue"
   import Error from "./components/Error.vue"
+  import DayCard from "./components/DayCard.vue"
 
   const API_ENDPOINT = "https://api.weatherapi.com/v1"
   const API_KEY = import.meta.env.VITE_WEATHER_API_KEY
@@ -13,8 +14,6 @@
   const error = ref(null)
 
   const dataModified = computed(() => {
-    if (!data.value) return []
-
     return [
       {
         label: "Влажность",
@@ -61,7 +60,22 @@
 <template>
   <main class="main">
     <Error :error="errorDisplay" />
-    <Stat v-for="item in dataModified" v-bind="item" :key="item.label" />
+
+    <div v-if="data" class="stat-data">
+      <div class="stat-list">
+        <Stat v-for="item in dataModified" v-bind="item" :key="item.label" />
+      </div>
+
+      <div class="day-card-list">
+        <DayCard
+          v-for="item in data.forecast.forecastday"
+          :key="item.date"
+          :weather-code="item.day.condition.code"
+          :temp="item.day.avgtemp_c"
+          :date="new Date(item.date)"
+        />
+      </div>
+    </div>
 
     <CitySelect @select-city="getCity" />
   </main>
@@ -72,5 +86,23 @@
     background: var(--color-bg-main);
     padding: 60px 50px;
     border-radius: 25px;
+  }
+
+  .day-card-list {
+    display: flex;
+    gap: 1px;
+  }
+
+  .stat-data {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin-bottom: 70px;
+  }
+
+  .stat-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 </style>
